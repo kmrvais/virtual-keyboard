@@ -1,0 +1,22 @@
+{
+  "name": "virtual-keyboard",
+  "version": "1.0.0",
+  "description": "",
+  "source": [
+    "src/index.html"
+  ],
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assets": "^3.0.1",
+    "sass": "^1.49.11"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
