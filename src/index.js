@@ -1,21 +1,24 @@
 import Keyboard from './keyboard';
 import {LANG} from "./data";
 
-document.addEventListener("DOMContentLoaded", function (){
-  let lang = localStorage.getItem('lang') || 'RUS';
+const renderKeyboard = (lang) => {
   const keyboard = new Keyboard(LANG[lang]);
   keyboard.render();
+  localStorage.setItem('lang', lang);
+
+  return keyboard
+}
+
+document.addEventListener("DOMContentLoaded", function (){
+  let lang = localStorage.getItem('lang') || 'RUS';
+  let keyboard = renderKeyboard(lang)
 
   document.addEventListener('keydown', function(event) {
-    if (event.altKey && event.shiftKey) {
+    if (event.altKey && event.ctrlKey) {
       lang = lang === 'RUS' ? 'EN' : 'RUS'
-      const keyboard = new Keyboard(LANG[lang]);
-      keyboard.render();
-      localStorage.setItem('lang', lang);
+      keyboard.detachEvents()
+      keyboard = renderKeyboard(lang)
     }
-
   });
-
-  localStorage.setItem('lang', lang);
 })
 

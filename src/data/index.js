@@ -31,34 +31,52 @@ export const LANG = {
     {
       letter: 'ё',
       additionalLetter: '`',
+      keyCode: 192,
       type: TYPES.LETTER
     },
     {
       letter: '1',
       additionalLetter: '!',
+      keyCode: 49,
       type: TYPES.NUMBER
     },
     {
       letter: '2',
       additionalLetter: '"',
+      keyCode: 50,
       type: TYPES.NUMBER
+    },
+    {
+      letter: 'й',
+      additionalLetter: 'Й',
+      keyCode: 81,
+      type: TYPES.LETTER
     },
   ],
   EN: [
     {
-      letter: '~',
+      letter: '`',
       additionalLetter: '`',
+      keyCode: 192,
       type: TYPES.LETTER
     },
     {
       letter: '1',
       additionalLetter: '!',
+      keyCode: 49,
       type: TYPES.NUMBER
     },
     {
       letter: '2',
       additionalLetter: '@',
+      keyCode: 50,
       type: TYPES.NUMBER
+    },
+    {
+      letter: 'q',
+      additionalLetter: 'Q',
+      keyCode: 81,
+      type: TYPES.LETTER
     },
   ]
 }

@@ -1,15 +1,35 @@
 export default class Button {
-  constructor(letter, additionalLetter, type) {
+  constructor(letter, additionalLetter, type, keyCode) {
     this.letter = letter;
     this.additionalLetter = additionalLetter;
     this.type = type;
+    this.keyCode = keyCode;
+    this.buttonElement = document.createElement('button');
   }
 
   render() {
-    const buttonElement = document.createElement('button');
-    buttonElement.innerHTML = this.letter;
-    buttonElement.classList.add('button');
-    buttonElement.classList.add(`button_${this.type}`);
-    return buttonElement;
+    this.buttonElement.innerHTML = this.letter;
+    this.buttonElement.classList.add('button');
+    this.buttonElement.classList.add(`button_${this.type}`);
+    this.attachEvents();
+    return this.buttonElement;
+  }
+
+  attachEvents() {
+    document.addEventListener(`keydown:${this.keyCode}`, this.keydownHandler.bind(this))
+    document.addEventListener(`keyup:${this.keyCode}`, this.keyupHandler.bind(this))
+  }
+
+  detachEvents() {
+    document.removeEventListener(`keydown:${this.keyCode}`, this.keydownHandler.bind(this))
+    document.removeEventListener(`keyup:${this.keyCode}`, this.keyupHandler.bind(this))
+  }
+
+  keydownHandler(event) {
+    this.buttonElement.classList.add('button_pressed');
+  }
+
+  keyupHandler(event) {
+    this.buttonElement.classList.remove('button_pressed');
   }
 }
