@@ -27,6 +27,11 @@ export default class Button {
 
   keydownHandler(event) {
     this.buttonElement.classList.add('button_pressed');
+    document.dispatchEvent(new CustomEvent('textarea:input', {
+      detail: {
+        letter: event.detail.isShift || event.detail.isCapsLock ? this.additionalLetter : this.letter
+      }
+    }));
   }
 
   keyupHandler(event) {

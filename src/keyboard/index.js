@@ -1,13 +1,34 @@
 import Button from '../button';
+import {CAPSLOCK, TYPES} from "../data";
+import Capslock from "../button/capslock";
+import Backspace from "../button/backspace";
+import NumberButton from "../button/number";
+
+const buttonCreate = (letter, additionalLetter, type, keyCode) => {
+  if(type === TYPES.CAPSLOCK) {
+    return new Capslock(letter, additionalLetter, type, keyCode)
+  }
+
+  if(type === TYPES.BACKSPACE) {
+    return new Backspace(letter, additionalLetter, type, keyCode)
+  }
+
+  if(type === TYPES.NUMBER) {
+    return new NumberButton(letter, additionalLetter, type, keyCode)
+  }
+
+  return new Button(letter, additionalLetter, type, keyCode)
+}
 
 export default class Keyboard {
   constructor(buttons) {
     this.buttons = [];
     for (let i = 0; i < buttons.length; i++) {
-      this.buttons.push(new Button(buttons[i].letter, buttons[i].additionalLetter, buttons[i].type, buttons[i].keyCode))
-    }
+      this.buttons.push(buttonCreate(buttons[i].letter, buttons[i].additionalLetter, buttons[i].type, buttons[i].keyCode))
+    };
     this.keyboard = document.createElement('div');
     this.keyboard.classList.add('keyboard');
+    this.capsLock = false;
   }
 
   render() {
@@ -41,10 +62,20 @@ export default class Keyboard {
   }
 
   keydownHandler(event) {
-    document.dispatchEvent(new Event(`keydown:${event.keyCode}`));
+    event.preventDefault();
+    if (CAPSLOCK === event.keyCode) {
+      this.capsLock = !this.capsLock;
+    }
+    console.log(event.keyCode)
+    document.dispatchEvent(new CustomEvent(`keydown:${event.keyCode}`, {
+      detail: {
+        isShift: event.shiftKey,
+        isCapsLock: this.capsLock
+      }
+    }));
   }
 
   keyupHandler(event) {
-    document.dispatchEvent(new Event(`keyup:${event.keyCode}`));
+    document.dispatchEvent(new CustomEvent(`keyup:${event.keyCode}`));
   }
 }
