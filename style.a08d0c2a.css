@@ -13,6 +13,8 @@ body {
 }
 
 .textarea {
+  margin-top: 20px;
+  height: 100px;
   width: 100%;
 }
 
@@ -38,6 +40,18 @@ body {
   padding: 3px;
   height: 43px;
   width: 43px;
+  transition: 0.3s;
+  position: relative;
+}
+.button:hover {
+  background: blueviolet;
+  border-color: blueviolet;
+}
+
+.button__additional-letter {
+  position: absolute;
+  right: 2px;
+  top: 2px;
 }
 
 .button_number {
@@ -46,6 +60,9 @@ body {
 
 .button_letter {
   background: #ef7088;
+}
+.button_letter .button__additional-letter {
+  display: none;
 }
 
 .button_backspace {
@@ -102,13 +119,18 @@ body {
 .button_arrow {
   background: #d88796;
 }
+.button_arrow .button__additional-letter {
+  display: none;
+}
 
 .button_symbol {
   background: #ef7088;
 }
 
 .button_pressed {
-  background: aqua;
+  background: blueviolet;
+  border-color: blueviolet;
+  border-radius: 10px;
 }
 
 /*# sourceMappingURL=/style.a08d0c2a.css.map */

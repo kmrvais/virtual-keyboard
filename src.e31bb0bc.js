@@ -202,9 +202,11 @@ exports.default = Button;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TYPES = exports.LANG = exports.CAPSLOCK = void 0;
+exports.TYPES = exports.SHIFT = exports.LANG = exports.CAPSLOCK = void 0;
 var CAPSLOCK = 20;
 exports.CAPSLOCK = CAPSLOCK;
+var SHIFT = 16;
+exports.SHIFT = SHIFT;
 var TYPES = {
   NUMBER: 'number',
   LETTER: 'letter',
@@ -282,12 +284,12 @@ var LANG = {
     letter: '-',
     additionalLetter: '_',
     keyCode: 189,
-    type: TYPES.NUMBER
+    type: TYPES.SYMBOL
   }, {
     letter: '=',
     additionalLetter: '+',
     keyCode: 187,
-    type: TYPES.NUMBER
+    type: TYPES.SYMBOL
   }, {
     letter: 'backspace',
     additionalLetter: null,
@@ -359,10 +361,10 @@ var LANG = {
     keyCode: 221,
     type: TYPES.LETTER
   }, {
-    letter: '|',
+    letter: '\\',
     additionalLetter: '|',
     keyCode: 220,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
     letter: 'del',
     additionalLetter: null,
@@ -487,13 +489,68 @@ var LANG = {
     letter: '.',
     additionalLetter: ',',
     keyCode: 191,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
+  }, {
+    letter: '↑',
+    additionalLetter: '↑',
+    keyCode: 38,
+    type: TYPES.ARROW
+  }, {
+    letter: 'shift',
+    additionalLetter: null,
+    keyCode: 16,
+    type: TYPES.SHIFT
+  }, {
+    letter: 'ctrl',
+    additionalLetter: null,
+    keyCode: 17,
+    type: TYPES.CTRL
+  }, {
+    letter: 'win',
+    additionalLetter: null,
+    keyCode: 91,
+    type: TYPES.WIN
+  }, {
+    letter: 'alt',
+    additionalLetter: null,
+    keyCode: 18,
+    type: TYPES.ALT
+  }, {
+    letter: ' ',
+    additionalLetter: ' ',
+    keyCode: 32,
+    type: TYPES.SPACE
+  }, {
+    letter: 'alt',
+    additionalLetter: null,
+    keyCode: 18,
+    type: TYPES.ALT
+  }, {
+    letter: '←',
+    additionalLetter: '←',
+    keyCode: 37,
+    type: TYPES.ARROW
+  }, {
+    letter: '↓',
+    additionalLetter: '↓',
+    keyCode: 40,
+    type: TYPES.ARROW
+  }, {
+    letter: '→',
+    additionalLetter: '→',
+    keyCode: 39,
+    type: TYPES.ARROW
+  }, {
+    letter: 'ctrl',
+    additionalLetter: null,
+    keyCode: 17,
+    type: TYPES.CTRL
   }],
   EN: [{
     letter: '`',
-    additionalLetter: '`',
+    additionalLetter: '~',
     keyCode: 192,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
     letter: '1',
     additionalLetter: '!',
@@ -548,12 +605,12 @@ var LANG = {
     letter: '-',
     additionalLetter: '_',
     keyCode: 189,
-    type: TYPES.NUMBER
+    type: TYPES.SYMBOL
   }, {
     letter: '=',
     additionalLetter: '+',
     keyCode: 187,
-    type: TYPES.NUMBER
+    type: TYPES.SYMBOL
   }, {
     letter: 'backspace',
     additionalLetter: null,
@@ -623,12 +680,12 @@ var LANG = {
     letter: ']',
     additionalLetter: '}',
     keyCode: 221,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
-    letter: '|',
+    letter: '\\',
     additionalLetter: '|',
     keyCode: 220,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
     letter: 'del',
     additionalLetter: null,
@@ -688,12 +745,12 @@ var LANG = {
     letter: ';',
     additionalLetter: ':',
     keyCode: 186,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
     letter: '\'',
     additionalLetter: '\"',
     keyCode: 222,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
     letter: 'enter',
     additionalLetter: null,
@@ -743,17 +800,72 @@ var LANG = {
     letter: ',',
     additionalLetter: '<',
     keyCode: 188,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
     letter: '.',
     additionalLetter: '>',
     keyCode: 190,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
   }, {
     letter: '/',
     additionalLetter: '?',
     keyCode: 191,
-    type: TYPES.LETTER
+    type: TYPES.SYMBOL
+  }, {
+    letter: '↑',
+    additionalLetter: '↑',
+    keyCode: 38,
+    type: TYPES.ARROW
+  }, {
+    letter: 'shift',
+    additionalLetter: null,
+    keyCode: 16,
+    type: TYPES.SHIFT
+  }, {
+    letter: 'ctrl',
+    additionalLetter: null,
+    keyCode: 17,
+    type: TYPES.CTRL
+  }, {
+    letter: 'win',
+    additionalLetter: null,
+    keyCode: 91,
+    type: TYPES.WIN
+  }, {
+    letter: 'alt',
+    additionalLetter: null,
+    keyCode: 18,
+    type: TYPES.ALT
+  }, {
+    letter: ' ',
+    additionalLetter: ' ',
+    keyCode: 32,
+    type: TYPES.SPACE
+  }, {
+    letter: 'alt',
+    additionalLetter: null,
+    keyCode: 18,
+    type: TYPES.ALT
+  }, {
+    letter: '←',
+    additionalLetter: '←',
+    keyCode: 37,
+    type: TYPES.ARROW
+  }, {
+    letter: '↓',
+    additionalLetter: '↓',
+    keyCode: 40,
+    type: TYPES.ARROW
+  }, {
+    letter: '→',
+    additionalLetter: '→',
+    keyCode: 39,
+    type: TYPES.ARROW
+  }, {
+    letter: 'ctrl',
+    additionalLetter: null,
+    keyCode: 17,
+    type: TYPES.CTRL
   }]
 };
 exports.LANG = LANG;
@@ -937,6 +1049,466 @@ var NumberButton = /*#__PURE__*/function (_Button) {
 }(_index.default);
 
 exports.default = NumberButton;
+},{"../index":"button/index.js"}],"button/shift/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Shift = /*#__PURE__*/function (_Button) {
+  _inherits(Shift, _Button);
+
+  var _super = _createSuper(Shift);
+
+  function Shift(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, Shift);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(Shift, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+    }
+  }]);
+
+  return Shift;
+}(_index.default);
+
+exports.default = Shift;
+},{"../index":"button/index.js"}],"button/enter/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Enter = /*#__PURE__*/function (_Button) {
+  _inherits(Enter, _Button);
+
+  var _super = _createSuper(Enter);
+
+  function Enter(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, Enter);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(Enter, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+      document.dispatchEvent(new CustomEvent('textarea:input', {
+        detail: {
+          letter: '\n'
+        }
+      }));
+    }
+  }]);
+
+  return Enter;
+}(_index.default);
+
+exports.default = Enter;
+},{"../index":"button/index.js"}],"button/del/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Del = /*#__PURE__*/function (_Button) {
+  _inherits(Del, _Button);
+
+  var _super = _createSuper(Del);
+
+  function Del(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, Del);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(Del, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+      document.dispatchEvent(new CustomEvent('textarea:del'));
+    }
+  }]);
+
+  return Del;
+}(_index.default);
+
+exports.default = Del;
+},{"../index":"button/index.js"}],"button/tab/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Tab = /*#__PURE__*/function (_Button) {
+  _inherits(Tab, _Button);
+
+  var _super = _createSuper(Tab);
+
+  function Tab(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, Tab);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(Tab, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+      document.dispatchEvent(new CustomEvent('textarea:tab'));
+    }
+  }]);
+
+  return Tab;
+}(_index.default);
+
+exports.default = Tab;
+},{"../index":"button/index.js"}],"button/alt/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Alt = /*#__PURE__*/function (_Button) {
+  _inherits(Alt, _Button);
+
+  var _super = _createSuper(Alt);
+
+  function Alt(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, Alt);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(Alt, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+    }
+  }]);
+
+  return Alt;
+}(_index.default);
+
+exports.default = Alt;
+},{"../index":"button/index.js"}],"button/ctrl/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Ctrl = /*#__PURE__*/function (_Button) {
+  _inherits(Ctrl, _Button);
+
+  var _super = _createSuper(Ctrl);
+
+  function Ctrl(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, Ctrl);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(Ctrl, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+    }
+  }]);
+
+  return Ctrl;
+}(_index.default);
+
+exports.default = Ctrl;
+},{"../index":"button/index.js"}],"button/win/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var Win = /*#__PURE__*/function (_Button) {
+  _inherits(Win, _Button);
+
+  var _super = _createSuper(Win);
+
+  function Win(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, Win);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(Win, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+    }
+  }]);
+
+  return Win;
+}(_index.default);
+
+exports.default = Win;
+},{"../index":"button/index.js"}],"button/symbol/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _index = _interopRequireDefault(require("../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var SymbolButton = /*#__PURE__*/function (_Button) {
+  _inherits(SymbolButton, _Button);
+
+  var _super = _createSuper(SymbolButton);
+
+  function SymbolButton(letter, additionalLetter, type, keyCode) {
+    _classCallCheck(this, SymbolButton);
+
+    return _super.call(this, letter, additionalLetter, type, keyCode);
+  }
+
+  _createClass(SymbolButton, [{
+    key: "keydownHandler",
+    value: function keydownHandler(event) {
+      this.buttonElement.classList.add('button_pressed');
+      document.dispatchEvent(new CustomEvent('textarea:input', {
+        detail: {
+          letter: event.detail.isShift ? this.additionalLetter : this.letter
+        }
+      }));
+    }
+  }]);
+
+  return SymbolButton;
+}(_index.default);
+
+exports.default = SymbolButton;
 },{"../index":"button/index.js"}],"keyboard/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -954,6 +1526,22 @@ var _capslock = _interopRequireDefault(require("../button/capslock"));
 var _backspace = _interopRequireDefault(require("../button/backspace"));
 
 var _number = _interopRequireDefault(require("../button/number"));
+
+var _shift = _interopRequireDefault(require("../button/shift"));
+
+var _enter = _interopRequireDefault(require("../button/enter"));
+
+var _del = _interopRequireDefault(require("../button/del"));
+
+var _tab = _interopRequireDefault(require("../button/tab"));
+
+var _alt = _interopRequireDefault(require("../button/alt"));
+
+var _ctrl = _interopRequireDefault(require("../button/ctrl"));
+
+var _win = _interopRequireDefault(require("../button/win"));
+
+var _symbol = _interopRequireDefault(require("../button/symbol"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -976,6 +1564,38 @@ var buttonCreate = function buttonCreate(letter, additionalLetter, type, keyCode
     return new _number.default(letter, additionalLetter, type, keyCode);
   }
 
+  if (type === _data.TYPES.SHIFT) {
+    return new _shift.default(letter, additionalLetter, type, keyCode);
+  }
+
+  if (type === _data.TYPES.ENTER) {
+    return new _enter.default(letter, additionalLetter, type, keyCode);
+  }
+
+  if (type === _data.TYPES.DEL) {
+    return new _del.default(letter, additionalLetter, type, keyCode);
+  }
+
+  if (type === _data.TYPES.TAB) {
+    return new _tab.default(letter, additionalLetter, type, keyCode);
+  }
+
+  if (type === _data.TYPES.ALT) {
+    return new _alt.default(letter, additionalLetter, type, keyCode);
+  }
+
+  if (type === _data.TYPES.CTRL) {
+    return new _ctrl.default(letter, additionalLetter, type, keyCode);
+  }
+
+  if (type === _data.TYPES.WIN) {
+    return new _win.default(letter, additionalLetter, type, keyCode);
+  }
+
+  if (type === _data.TYPES.SYMBOL) {
+    return new _symbol.default(letter, additionalLetter, type, keyCode);
+  }
+
   return new _button.default(letter, additionalLetter, type, keyCode);
 };
 
@@ -992,6 +1612,7 @@ var Keyboard = /*#__PURE__*/function () {
     this.keyboard = document.createElement('div');
     this.keyboard.classList.add('keyboard');
     this.capsLock = false;
+    this.shift = false;
   }
 
   _createClass(Keyboard, [{
@@ -1019,6 +1640,9 @@ var Keyboard = /*#__PURE__*/function () {
   }, {
     key: "attachEvents",
     value: function attachEvents() {
+      this.keydownHandler = this.keydownHandler.bind(this);
+      this.keyupHandler = this.keyupHandler.bind(this);
+      this.mousedownHandler = this.mousedownHandler.bind(this);
       document.addEventListener('keydown', this.keydownHandler);
       document.addEventListener('keyup', this.keyupHandler);
       this.keyboard.addEventListener('mousedown', this.mousedownHandler);
@@ -1049,9 +1673,13 @@ var Keyboard = /*#__PURE__*/function () {
         this.capsLock = !this.capsLock;
       }
 
+      if (_data.SHIFT === event.keyCode) {
+        this.shift = true;
+      }
+
       document.dispatchEvent(new CustomEvent("keydown:".concat(event.keyCode), {
         detail: {
-          isShift: event.shiftKey,
+          isShift: this.shift,
           isCapsLock: this.capsLock
         }
       }));
@@ -1059,21 +1687,30 @@ var Keyboard = /*#__PURE__*/function () {
   }, {
     key: "keyupHandler",
     value: function keyupHandler(event) {
+      if (_data.SHIFT === event.keyCode) {
+        this.shift = false;
+      }
+
       document.dispatchEvent(new CustomEvent("keyup:".concat(event.keyCode)));
     }
   }, {
     key: "mousedownHandler",
     value: function mousedownHandler(event) {
-      var target = event.target.closest('.button');
-
-      if (!target) {
+      if (!event.target.closest('.button')) {
         return;
       }
 
+      var target = event.target.closest('.button');
+      var keyCode = +target.getAttribute('data-key-code');
+
+      if (_data.CAPSLOCK === keyCode) {
+        this.capsLock = !this.capsLock;
+      }
+
       document.dispatchEvent(new CustomEvent("button:deactivate"));
-      document.dispatchEvent(new CustomEvent("keydown:".concat(target.getAttribute('data-key-code')), {
+      document.dispatchEvent(new CustomEvent("keydown:".concat(keyCode), {
         detail: {
-          isShift: false,
+          isShift: this.shift,
           isCapsLock: this.capsLock
         }
       }));
@@ -1095,7 +1732,7 @@ var Keyboard = /*#__PURE__*/function () {
 }();
 
 exports.default = Keyboard;
-},{"../button":"button/index.js","../data":"data/index.js","../button/capslock":"button/capslock/index.js","../button/backspace":"button/backspace/index.js","../button/number":"button/number/index.js"}],"textarea/index.js":[function(require,module,exports) {
+},{"../button":"button/index.js","../data":"data/index.js","../button/capslock":"button/capslock/index.js","../button/backspace":"button/backspace/index.js","../button/number":"button/number/index.js","../button/shift":"button/shift/index.js","../button/enter":"button/enter/index.js","../button/del":"button/del/index.js","../button/tab":"button/tab/index.js","../button/alt":"button/alt/index.js","../button/ctrl":"button/ctrl/index.js","../button/win":"button/win/index.js","../button/symbol":"button/symbol/index.js"}],"textarea/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1128,6 +1765,8 @@ var Textarea = /*#__PURE__*/function () {
     value: function attachEvents() {
       document.addEventListener('textarea:input', this.inputHandler.bind(this));
       document.addEventListener('textarea:remove', this.removeHandler.bind(this));
+      document.addEventListener('textarea:del', this.delHandler.bind(this));
+      document.addEventListener('textarea:tab', this.tabHandler.bind(this));
     }
   }, {
     key: "inputHandler",
@@ -1138,6 +1777,25 @@ var Textarea = /*#__PURE__*/function () {
     key: "removeHandler",
     value: function removeHandler() {
       this.textarea.value = this.textarea.value.substring(0, this.textarea.value.length - 1);
+    }
+  }, {
+    key: "delHandler",
+    value: function delHandler() {
+      var currentValue = this.textarea.value;
+      var selectionStart = this.textarea.selectionStart;
+
+      if (selectionStart > 0 && selectionStart <= currentValue.length) {
+        var beforeValue = currentValue.slice(0, selectionStart);
+        var afterValue = currentValue.slice(selectionStart + 1, currentValue.length);
+        this.textarea.value = beforeValue + afterValue;
+        this.textarea.setSelectionRange(selectionStart, selectionStart);
+      }
+    }
+  }, {
+    key: "tabHandler",
+    value: function tabHandler() {
+      this.textarea.value = this.textarea.value + '    ';
+      this.textarea.setSelectionRange(this.textarea.value.length - 1, this.textarea.value.length - 1);
     }
   }]);
 
@@ -1164,6 +1822,10 @@ var renderKeyboard = function renderKeyboard(lang) {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+  var container = document.createElement('div');
+  container.classList.add('container');
+  document.body.append(container);
+  container.append('Клавиатура сделана в Windows. Для переключения языка комбинация: ctrl + alt');
   var textarea = new _textarea.default();
   textarea.render();
   var lang = localStorage.getItem('lang') || 'RUS';
@@ -1204,7 +1866,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58764" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65363" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
