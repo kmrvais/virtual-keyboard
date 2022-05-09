@@ -25,7 +25,7 @@ export default class Keyboard {
     this.buttons = [];
     for (let i = 0; i < buttons.length; i++) {
       this.buttons.push(buttonCreate(buttons[i].letter, buttons[i].additionalLetter, buttons[i].type, buttons[i].keyCode))
-    };
+    }
     this.keyboard = document.createElement('div');
     this.keyboard.classList.add('keyboard');
     this.capsLock = false;
@@ -55,18 +55,23 @@ export default class Keyboard {
 
   detachEvents() {
     document.removeEventListener('keydown', this.keydownHandler);
-    document.removeEventListener('keydown', this.keyupHandler);
+    document.removeEventListener('keyup', this.keyupHandler);
     for (let i = 0; i < this.buttons.length; i++) {
       this.buttons[i].detachEvents();
     }
   }
 
   keydownHandler(event) {
+    if (event.altKey && event.ctrlKey) {
+      return;
+    }
+
     event.preventDefault();
+
     if (CAPSLOCK === event.keyCode) {
       this.capsLock = !this.capsLock;
     }
-    console.log(event.keyCode)
+
     document.dispatchEvent(new CustomEvent(`keydown:${event.keyCode}`, {
       detail: {
         isShift: event.shiftKey,

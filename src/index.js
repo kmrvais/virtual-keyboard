@@ -10,13 +10,13 @@ const renderKeyboard = (lang) => {
   return keyboard
 }
 
-document.addEventListener("DOMContentLoaded", function (){
+document.addEventListener("DOMContentLoaded", function () {
   let textarea = new Textarea();
   textarea.render();
   let lang = localStorage.getItem('lang') || 'RUS';
   let keyboard = renderKeyboard(lang);
 
-  document.addEventListener('keydown', function(event) {
+  document.addEventListener('keydown', function (event) {
     if (event.altKey && event.ctrlKey) {
       lang = lang === 'RUS' ? 'EN' : 'RUS'
       keyboard.detachEvents()

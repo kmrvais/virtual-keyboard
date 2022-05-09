@@ -16,13 +16,16 @@ export default class Button {
   }
 
   attachEvents() {
-    document.addEventListener(`keydown:${this.keyCode}`, this.keydownHandler.bind(this))
-    document.addEventListener(`keyup:${this.keyCode}`, this.keyupHandler.bind(this))
+    this.keydownHandler = this.keydownHandler.bind(this)
+    this.keyupHandler = this.keyupHandler.bind(this)
+
+    document.addEventListener(`keydown:${this.keyCode}`, this.keydownHandler)
+    document.addEventListener(`keyup:${this.keyCode}`, this.keyupHandler)
   }
 
   detachEvents() {
-    document.removeEventListener(`keydown:${this.keyCode}`, this.keydownHandler.bind(this))
-    document.removeEventListener(`keyup:${this.keyCode}`, this.keyupHandler.bind(this))
+    document.removeEventListener(`keydown:${this.keyCode}`, this.keydownHandler)
+    document.removeEventListener(`keyup:${this.keyCode}`, this.keyupHandler)
   }
 
   keydownHandler(event) {
