@@ -1,4 +1,4 @@
-import Button from "../index";
+import Button from '../index';
 
 export default class Win extends Button {
   constructor(letter, additionalLetter, type, keyCode) {

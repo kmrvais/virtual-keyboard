@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html  --public-url /virtual-keyboard/",
-    "lint": "eslint src/*.js"
+    "lint": "eslint --ext .js src"
   },
   "keywords": [],
   "author": "",

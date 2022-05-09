@@ -1,70 +1,72 @@
 import Button from '../button';
-import {CAPSLOCK, SHIFT, TYPES} from "../data";
-import Capslock from "../button/capslock";
-import Backspace from "../button/backspace";
-import NumberButton from "../button/number";
-import Shift from "../button/shift";
-import Enter from "../button/enter";
-import Del from "../button/del";
-import Tab from "../button/tab";
-import Alt from "../button/alt";
-import Ctrl from "../button/ctrl";
-import Win from "../button/win";
-import SymbolButton from "../button/symbol";
+import { CAPSLOCK, SHIFT, TYPES } from '../data';
+import Capslock from '../button/capslock';
+import Backspace from '../button/backspace';
+import NumberButton from '../button/number';
+import Shift from '../button/shift';
+import Enter from '../button/enter';
+import Del from '../button/del';
+import Tab from '../button/tab';
+import Alt from '../button/alt';
+import Ctrl from '../button/ctrl';
+import Win from '../button/win';
+import SymbolButton from '../button/symbol';
 
 const buttonCreate = (letter, additionalLetter, type, keyCode) => {
   if (type === TYPES.CAPSLOCK) {
-    return new Capslock(letter, additionalLetter, type, keyCode)
+    return new Capslock(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.BACKSPACE) {
-    return new Backspace(letter, additionalLetter, type, keyCode)
+    return new Backspace(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.NUMBER) {
-    return new NumberButton(letter, additionalLetter, type, keyCode)
+    return new NumberButton(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.SHIFT) {
-    return new Shift(letter, additionalLetter, type, keyCode)
+    return new Shift(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.ENTER) {
-    return new Enter(letter, additionalLetter, type, keyCode)
+    return new Enter(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.DEL) {
-    return new Del(letter, additionalLetter, type, keyCode)
+    return new Del(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.TAB) {
-    return new Tab(letter, additionalLetter, type, keyCode)
+    return new Tab(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.ALT) {
-    return new Alt(letter, additionalLetter, type, keyCode)
+    return new Alt(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.CTRL) {
-    return new Ctrl(letter, additionalLetter, type, keyCode)
+    return new Ctrl(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.WIN) {
-    return new Win(letter, additionalLetter, type, keyCode)
+    return new Win(letter, additionalLetter, type, keyCode);
   }
 
   if (type === TYPES.SYMBOL) {
-    return new SymbolButton(letter, additionalLetter, type, keyCode)
+    return new SymbolButton(letter, additionalLetter, type, keyCode);
   }
 
-  return new Button(letter, additionalLetter, type, keyCode)
-}
+  return new Button(letter, additionalLetter, type, keyCode);
+};
 
 export default class Keyboard {
   constructor(buttons) {
     this.buttons = [];
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < buttons.length; i++) {
-      this.buttons.push(buttonCreate(buttons[i].letter, buttons[i].additionalLetter, buttons[i].type, buttons[i].keyCode))
+      // eslint-disable-next-line max-len
+      this.buttons.push(buttonCreate(buttons[i].letter, buttons[i].additionalLetter, buttons[i].type, buttons[i].keyCode));
     }
     this.keyboard = document.createElement('div');
     this.keyboard.classList.add('keyboard');
@@ -76,12 +78,14 @@ export default class Keyboard {
     this.clear();
     const container = document.querySelector('.container');
     container.append(this.keyboard);
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < this.buttons.length; i++) {
       this.keyboard.append(this.buttons[i].render());
     }
     this.attachEvents();
   }
 
+  // eslint-disable-next-line class-methods-use-this
   clear() {
     const keyboardElement = document.querySelector('.keyboard');
     if (keyboardElement) {
@@ -105,6 +109,7 @@ export default class Keyboard {
     document.removeEventListener('keyup', this.keyupHandler);
     this.keyboard.removeEventListener('mousedown', this.mousedownHandler);
     this.keyboard.removeEventListener('mouseup', this.mouseupHandler);
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < this.buttons.length; i++) {
       this.buttons[i].detachEvents();
     }
@@ -128,8 +133,8 @@ export default class Keyboard {
     document.dispatchEvent(new CustomEvent(`keydown:${event.keyCode}`, {
       detail: {
         isShift: this.shift,
-        isCapsLock: this.capsLock
-      }
+        isCapsLock: this.capsLock,
+      },
     }));
   }
 
@@ -143,7 +148,7 @@ export default class Keyboard {
 
   mousedownHandler(event) {
     if (!event.target.closest('.button')) {
-      return
+      return;
     }
     const target = event.target.closest('.button');
     const keyCode = +target.getAttribute('data-key-code');
@@ -152,20 +157,21 @@ export default class Keyboard {
       this.capsLock = !this.capsLock;
     }
 
-    document.dispatchEvent(new CustomEvent(`button:deactivate`));
+    document.dispatchEvent(new CustomEvent('button:deactivate'));
     document.dispatchEvent(new CustomEvent(`keydown:${keyCode}`, {
       detail: {
         isShift: this.shift,
-        isCapsLock: this.capsLock
-      }
+        isCapsLock: this.capsLock,
+      },
     }));
   }
 
+  // eslint-disable-next-line class-methods-use-this
   mouseupHandler(event) {
     const target = event.target.closest('.button');
 
     if (!target) {
-      return
+      return;
     }
 
     document.dispatchEvent(new CustomEvent(`keyup:${target.getAttribute('data-key-code')}`));

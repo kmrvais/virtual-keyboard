@@ -15,16 +15,16 @@ export default class Textarea {
   }
 
   inputHandler(event) {
-    this.textarea.value += event.detail.letter
+    this.textarea.value += event.detail.letter;
   }
 
   removeHandler() {
-    this.textarea.value = this.textarea.value.substring(0, this.textarea.value.length - 1)
+    this.textarea.value = this.textarea.value.substring(0, this.textarea.value.length - 1);
   }
 
   delHandler() {
-    const currentValue = this.textarea.value
-    const selectionStart = this.textarea.selectionStart
+    const currentValue = this.textarea.value;
+    const { selectionStart } = this.textarea;
 
     if (selectionStart > 0 && selectionStart <= currentValue.length) {
       const beforeValue = currentValue.slice(0, selectionStart);
@@ -35,7 +35,7 @@ export default class Textarea {
   }
 
   tabHandler() {
-    this.textarea.value = this.textarea.value + '    ';
-    this.textarea.setSelectionRange(this.textarea.value.length - 1 , this.textarea.value.length - 1);
+    this.textarea.value = `${this.textarea.value}    `;
+    this.textarea.setSelectionRange(this.textarea.value.length - 1, this.textarea.value.length - 1);
   }
 }
