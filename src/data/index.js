@@ -89,13 +89,13 @@ export const LANG = {
       letter: '-',
       additionalLetter: '_',
       keyCode: 189,
-      type: TYPES.NUMBER
+      type: TYPES.SYMBOL
     },
     {
       letter: '=',
       additionalLetter: '+',
       keyCode: 187,
-      type: TYPES.NUMBER
+      type: TYPES.SYMBOL
     },
     {
       letter: 'backspace',
@@ -182,10 +182,10 @@ export const LANG = {
       type: TYPES.LETTER
     },
     {
-      letter: '|',
+      letter: '\\',
       additionalLetter: '|',
       keyCode: 220,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: 'del',
@@ -335,8 +335,74 @@ export const LANG = {
       letter: '.',
       additionalLetter: ',',
       keyCode: 191,
-      type: TYPES.LETTER
-    }
+      type: TYPES.SYMBOL
+    },
+    {
+      letter: '↑',
+      additionalLetter: null,
+      keyCode: 38,
+      type: TYPES.ARROW
+    },
+    {
+      letter: 'shift',
+      additionalLetter: null,
+      keyCode: 16,
+      type: TYPES.SHIFT
+    },
+    {
+      letter: 'ctrl',
+      additionalLetter: null,
+      keyCode: 17,
+      type: TYPES.CTRL
+    },
+    {
+      letter: 'win',
+      additionalLetter: null,
+      keyCode: 91,
+      type: TYPES.WIN
+    },
+    {
+      letter: 'alt',
+      additionalLetter: null,
+      keyCode: 18,
+      type: TYPES.ALT
+    },
+    {
+      letter: ' ',
+      additionalLetter: null,
+      keyCode: 32,
+      type: TYPES.SPACE
+    },
+    {
+      letter: 'alt',
+      additionalLetter: null,
+      keyCode: 18,
+      type: TYPES.ALT
+    },
+    {
+      letter: '←',
+      additionalLetter: null,
+      keyCode: 37,
+      type: TYPES.ARROW
+    },
+    {
+      letter: '↓',
+      additionalLetter: null,
+      keyCode: 40,
+      type: TYPES.ARROW
+    },
+    {
+      letter: '→',
+      additionalLetter: null,
+      keyCode: 39,
+      type: TYPES.ARROW
+    },
+    {
+      letter: 'ctrl',
+      additionalLetter: null,
+      keyCode: 17,
+      type: TYPES.CTRL
+    },
   ],
   EN: [
     {
@@ -409,13 +475,13 @@ export const LANG = {
       letter: '-',
       additionalLetter: '_',
       keyCode: 189,
-      type: TYPES.NUMBER
+      type: TYPES.SYMBOL
     },
     {
       letter: '=',
       additionalLetter: '+',
       keyCode: 187,
-      type: TYPES.NUMBER
+      type: TYPES.SYMBOL
     },
     {
       letter: 'backspace',
@@ -499,13 +565,13 @@ export const LANG = {
       letter: ']',
       additionalLetter: '}',
       keyCode: 221,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
-      letter: '|',
+      letter: '\\',
       additionalLetter: '|',
       keyCode: 220,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: 'del',
@@ -577,13 +643,13 @@ export const LANG = {
       letter: ';',
       additionalLetter: ':',
       keyCode: 186,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: '\'',
       additionalLetter: '\"',
       keyCode: 222,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: 'enter',
@@ -643,20 +709,86 @@ export const LANG = {
       letter: ',',
       additionalLetter: '<',
       keyCode: 188,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: '.',
       additionalLetter: '>',
       keyCode: 190,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: '/',
       additionalLetter: '?',
       keyCode: 191,
-      type: TYPES.LETTER
-    }
+      type: TYPES.SYMBOL
+    },
+        {
+      letter: '↑',
+      additionalLetter: null,
+      keyCode: 38,
+      type: TYPES.ARROW
+    },
+    {
+      letter: 'shift',
+      additionalLetter: null,
+      keyCode: 16,
+      type: TYPES.SHIFT
+    },
+    {
+      letter: 'ctrl',
+      additionalLetter: null,
+      keyCode: 17,
+      type: TYPES.CTRL
+    },
+    {
+      letter: 'win',
+      additionalLetter: null,
+      keyCode: 91,
+      type: TYPES.WIN
+    },
+    {
+      letter: 'alt',
+      additionalLetter: null,
+      keyCode: 18,
+      type: TYPES.ALT
+    },
+    {
+      letter: '',
+      additionalLetter: null,
+      keyCode: 32,
+      type: TYPES.SPACE
+    },
+    {
+      letter: 'alt',
+      additionalLetter: null,
+      keyCode: 18,
+      type: TYPES.ALT
+    },
+    {
+      letter: '←',
+      additionalLetter: null,
+      keyCode: 37,
+      type: TYPES.ARROW
+    },
+    {
+      letter: '↓',
+      additionalLetter: null,
+      keyCode: 40,
+      type: TYPES.ARROW
+    },
+    {
+      letter: '→',
+      additionalLetter: null,
+      keyCode: 39,
+      type: TYPES.ARROW
+    },
+    {
+      letter: 'ctrl',
+      additionalLetter: null,
+      keyCode: 17,
+      type: TYPES.CTRL
+    },
   ]
 }
 

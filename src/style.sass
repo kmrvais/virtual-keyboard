@@ -33,12 +33,26 @@ body
   padding: 3px
   height: 43px
   width: 43px
+  transition: .3s
+  position: relative
+
+  &:hover
+    background: blueviolet
+    border-color: blueviolet
+
+.button__additional-letter
+  position: absolute
+  right: 2px
+  top: 2px
 
 .button_number
   background: #d88796
 
 .button_letter
   background: #ef7088
+
+  .button__additional-letter
+    display: none
 
 .button_backspace
   background: #db7093
@@ -88,4 +102,4 @@ body
   background: #ef7088
 
 .button_pressed
-  background: aqua
+  background: #bf596c
