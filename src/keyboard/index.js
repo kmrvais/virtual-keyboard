@@ -51,11 +51,15 @@ export default class Keyboard {
   attachEvents() {
     document.addEventListener('keydown', this.keydownHandler);
     document.addEventListener('keyup', this.keyupHandler);
+    this.keyboard.addEventListener('mousedown', this.mousedownHandler)
+    this.keyboard.addEventListener('mouseup', this.mouseupHandler);
   }
 
   detachEvents() {
     document.removeEventListener('keydown', this.keydownHandler);
     document.removeEventListener('keyup', this.keyupHandler);
+    this.keyboard.removeEventListener('mousedown', this.mousedownHandler);
+    this.keyboard.removeEventListener('mouseup', this.mouseupHandler);
     for (let i = 0; i < this.buttons.length; i++) {
       this.buttons[i].detachEvents();
     }
@@ -82,5 +86,31 @@ export default class Keyboard {
 
   keyupHandler(event) {
     document.dispatchEvent(new CustomEvent(`keyup:${event.keyCode}`));
+  }
+
+  mousedownHandler(event) {
+    const target = event.target.closest('.button');
+
+    if (!target) {
+      return
+    }
+
+    document.dispatchEvent(new CustomEvent(`button:deactivate`));
+    document.dispatchEvent(new CustomEvent(`keydown:${target.getAttribute('data-key-code')}`, {
+      detail: {
+        isShift: false,
+        isCapsLock: this.capsLock
+      }
+    }));
+  }
+
+  mouseupHandler(event) {
+    const target = event.target.closest('.button');
+
+    if (!target) {
+      return
+    }
+
+    document.dispatchEvent(new CustomEvent(`keyup:${target.getAttribute('data-key-code')}`));
   }
 }

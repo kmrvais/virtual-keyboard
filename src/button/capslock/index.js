@@ -11,4 +11,7 @@ export default class Capslock extends Button {
 
   keyupHandler(event) {
   }
+
+  deactivateHandler() {
+  }
 }

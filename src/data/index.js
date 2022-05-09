@@ -13,7 +13,8 @@ export const TYPES = {
   ALT: 'alt',
   ENTER: 'enter',
   SPACE: 'space',
-  ARROW: 'arrow'
+  ARROW: 'arrow',
+  SYMBOL: 'symbol'
 }
 
 export const LANG = {
@@ -492,7 +493,7 @@ export const LANG = {
       letter: '[',
       additionalLetter: '{',
       keyCode: 219,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: ']',
