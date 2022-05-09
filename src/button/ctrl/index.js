@@ -6,5 +6,6 @@ export default class Ctrl extends Button {
   }
 
   keydownHandler(event) {
+    this.buttonElement.classList.add('button_pressed');
   }
 }

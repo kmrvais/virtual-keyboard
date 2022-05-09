@@ -1,4 +1,5 @@
 export const CAPSLOCK = 20;
+export const SHIFT = 16;
 
 export const TYPES = {
   NUMBER: 'number',
@@ -339,7 +340,7 @@ export const LANG = {
     },
     {
       letter: '↑',
-      additionalLetter: null,
+      additionalLetter: '↑',
       keyCode: 38,
       type: TYPES.ARROW
     },
@@ -369,7 +370,7 @@ export const LANG = {
     },
     {
       letter: ' ',
-      additionalLetter: null,
+      additionalLetter: ' ',
       keyCode: 32,
       type: TYPES.SPACE
     },
@@ -381,19 +382,19 @@ export const LANG = {
     },
     {
       letter: '←',
-      additionalLetter: null,
+      additionalLetter: '←',
       keyCode: 37,
       type: TYPES.ARROW
     },
     {
       letter: '↓',
-      additionalLetter: null,
+      additionalLetter: '↓',
       keyCode: 40,
       type: TYPES.ARROW
     },
     {
       letter: '→',
-      additionalLetter: null,
+      additionalLetter: '→',
       keyCode: 39,
       type: TYPES.ARROW
     },
@@ -407,9 +408,9 @@ export const LANG = {
   EN: [
     {
       letter: '`',
-      additionalLetter: '`',
+      additionalLetter: '~',
       keyCode: 192,
-      type: TYPES.LETTER
+      type: TYPES.SYMBOL
     },
     {
       letter: '1',
@@ -725,7 +726,7 @@ export const LANG = {
     },
         {
       letter: '↑',
-      additionalLetter: null,
+      additionalLetter: '↑',
       keyCode: 38,
       type: TYPES.ARROW
     },
@@ -754,8 +755,8 @@ export const LANG = {
       type: TYPES.ALT
     },
     {
-      letter: '',
-      additionalLetter: null,
+      letter: ' ',
+      additionalLetter: ' ',
       keyCode: 32,
       type: TYPES.SPACE
     },
@@ -767,19 +768,19 @@ export const LANG = {
     },
     {
       letter: '←',
-      additionalLetter: null,
+      additionalLetter: '←',
       keyCode: 37,
       type: TYPES.ARROW
     },
     {
       letter: '↓',
-      additionalLetter: null,
+      additionalLetter: '↓',
       keyCode: 40,
       type: TYPES.ARROW
     },
     {
       letter: '→',
-      additionalLetter: null,
+      additionalLetter: '→',
       keyCode: 39,
       type: TYPES.ARROW
     },

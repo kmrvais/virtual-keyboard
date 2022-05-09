@@ -6,5 +6,6 @@ export default class Win extends Button {
   }
 
   keydownHandler(event) {
+    this.buttonElement.classList.add('button_pressed');
   }
 }

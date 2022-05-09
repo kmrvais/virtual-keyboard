@@ -1,5 +1,5 @@
 import Button from '../button';
-import {CAPSLOCK, TYPES} from "../data";
+import {CAPSLOCK, SHIFT, TYPES} from "../data";
 import Capslock from "../button/capslock";
 import Backspace from "../button/backspace";
 import NumberButton from "../button/number";
@@ -10,6 +10,7 @@ import Tab from "../button/tab";
 import Alt from "../button/alt";
 import Ctrl from "../button/ctrl";
 import Win from "../button/win";
+import SymbolButton from "../button/symbol";
 
 const buttonCreate = (letter, additionalLetter, type, keyCode) => {
   if (type === TYPES.CAPSLOCK) {
@@ -52,6 +53,10 @@ const buttonCreate = (letter, additionalLetter, type, keyCode) => {
     return new Win(letter, additionalLetter, type, keyCode)
   }
 
+  if (type === TYPES.SYMBOL) {
+    return new SymbolButton(letter, additionalLetter, type, keyCode)
+  }
+
   return new Button(letter, additionalLetter, type, keyCode)
 }
 
@@ -64,6 +69,7 @@ export default class Keyboard {
     this.keyboard = document.createElement('div');
     this.keyboard.classList.add('keyboard');
     this.capsLock = false;
+    this.shift = false;
   }
 
   render() {
@@ -84,9 +90,13 @@ export default class Keyboard {
   }
 
   attachEvents() {
+    this.keydownHandler = this.keydownHandler.bind(this);
+    this.keyupHandler = this.keyupHandler.bind(this);
+    this.mousedownHandler = this.mousedownHandler.bind(this);
+
     document.addEventListener('keydown', this.keydownHandler);
     document.addEventListener('keyup', this.keyupHandler);
-    this.keyboard.addEventListener('mousedown', this.mousedownHandler)
+    this.keyboard.addEventListener('mousedown', this.mousedownHandler);
     this.keyboard.addEventListener('mouseup', this.mouseupHandler);
   }
 
@@ -111,29 +121,41 @@ export default class Keyboard {
       this.capsLock = !this.capsLock;
     }
 
+    if (SHIFT === event.keyCode) {
+      this.shift = true;
+    }
+
     document.dispatchEvent(new CustomEvent(`keydown:${event.keyCode}`, {
       detail: {
-        isShift: event.shiftKey,
+        isShift: this.shift,
         isCapsLock: this.capsLock
       }
     }));
   }
 
   keyupHandler(event) {
+    if (SHIFT === event.keyCode) {
+      this.shift = false;
+    }
+
     document.dispatchEvent(new CustomEvent(`keyup:${event.keyCode}`));
   }
 
   mousedownHandler(event) {
-    const target = event.target.closest('.button');
-
-    if (!target) {
+    if (!event.target.closest('.button')) {
       return
+    }
+    const target = event.target.closest('.button');
+    const keyCode = +target.getAttribute('data-key-code');
+
+    if (CAPSLOCK === keyCode) {
+      this.capsLock = !this.capsLock;
     }
 
     document.dispatchEvent(new CustomEvent(`button:deactivate`));
-    document.dispatchEvent(new CustomEvent(`keydown:${target.getAttribute('data-key-code')}`, {
+    document.dispatchEvent(new CustomEvent(`keydown:${keyCode}`, {
       detail: {
-        isShift: false,
+        isShift: this.shift,
         isCapsLock: this.capsLock
       }
     }));
